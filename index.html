@@ -11,8 +11,21 @@
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
         .mono { font-family: 'JetBrains Mono', monospace; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .gradient-text { background: linear-gradient(to right, #ffffff, #9ca3af); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .gradient-text { 
+            background: linear-gradient(to right, #ffffff, #9ca3af, #ffffff); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient-loop 5s linear infinite;
+        }
         .btn-glow:hover { box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+        .capability-card { transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out; }
+        .capability-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
+        @keyframes gradient-loop {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
     </style>
 </head>
 <body>
@@ -28,6 +41,7 @@
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
                 <a href="#product" class="hover:text-white transition-colors">PRODUCT</a>
+                <a href="#demo" class="hover:text-white transition-colors">DEMO</a>
                 <a href="#features" class="hover:text-white transition-colors">CAPABILITIES</a>
                 <a href="#plans" class="hover:text-white transition-colors">PLANS</a>
                 <a href="#enquiry" class="hover:text-white transition-colors">ENQUIRY</a>
@@ -49,7 +63,136 @@
             </p>
             <div class="flex flex-col md:flex-row justify-center items-center gap-4">
                 <a href="#enquiry" class="px-8 py-4 bg-white text-black font-semibold rounded-lg btn-glow transition-all w-full md:w-auto">Request Access</a>
-                <a href="#product" class="px-8 py-4 glass text-white font-semibold rounded-lg hover:bg-white/5 transition-all w-full md:w-auto">Watch Technical Demo</a>
+                <a href="#demo" class="px-8 py-4 glass text-white font-semibold rounded-lg hover:bg-white/5 transition-all w-full md:w-auto">Watch Technical Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Technical Demo</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">See how Wrought Iron transforms raw data into actionable intelligence in a secure, local environment.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="glass rounded-2xl p-2 aspect-video flex items-center justify-center overflow-hidden border-white/10 shadow-2xl">
+                    <div class="text-center">
+                        <i data-lucide="play-circle" class="w-20 h-20 text-gray-600 mx-auto mb-4"></i>
+                        <p class="text-gray-600 mono text-sm">WORKFLOW_DEMO.MP4</p>
+                        <p class="text-gray-700 text-xs">(Video coming soon)</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center font-bold mono">1</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Connect Your Data</h3>
+                            <p class="text-gray-400">Use <code class="mono text-xs bg-white/10 px-1 py-0.5 rounded">wi connect</code> to securely link local data sources like CSV, Parquet, or SQLite databases. Your data never leaves your machine.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center font-bold mono">2</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Clean and Prepare</h3>
+                            <p class="text-gray-400">Leverage <code class="mono text-xs bg-white/10 px-1 py-0.5 rounded">wi clean</code> to handle missing values, standardize formats, and mask sensitive PII automatically.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center font-bold mono">3</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Query and Analyze</h3>
+                            <p class="text-gray-400">Dive deep into your dataset with <code class="mono text-xs bg-white/10 px-1 py-0.5 rounded">wi query</code>. Perform complex filtering, joins, and aggregations to uncover insights.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-white/10 rounded-full flex items-center justify-center font-bold mono">4</div>
+                        <div>
+                            <h3 class="font-semibold text-lg mb-1">Generate a Report</h3>
+                            <p class="text-gray-400">Finally, use <code class="mono text-xs bg-white/10 px-1 py-0.5 rounded">wi report</code> to compile your findings into a secure, shareable document with visualizations created by <code class="mono text-xs bg-white/10 px-1 py-0.5 rounded">wi plot</code>.</p>
+                        </div>
+                    </div>
+                    <div class="pt-6 text-center">
+                        <a href="#enquiry" class="px-8 py-4 bg-white text-black font-semibold rounded-lg btn-glow transition-all inline-block">Request Access</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section id="features" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Capabilities</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">A full suite of tools for any intelligence lifecycle stage, from raw data to final report.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="database" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi connect</h3>
+                    <p class="text-sm text-gray-400">Connect and stage data from any source, including local files and remote databases.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="table" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi schema</h3>
+                    <p class="text-sm text-gray-400">Define, enforce, and manage data schemas to ensure data quality and integrity.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="search" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi query</h3>
+                    <p class="text-sm text-gray-400">Explore and query data using a powerful, intuitive query language.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="function-square" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi aggregate</h3>
+                    <p class="text-sm text-gray-400">Perform complex aggregations and transformations on your data.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="bar-chart-2" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi plot</h3>
+                    <p class="text-sm text-gray-400">Create compelling visualizations and plots to understand your data.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="wrench" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi clean</h3>
+                    <p class="text-sm text-gray-400">Clean and preprocess data to prepare it for analysis.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="map" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi geo</h3>
+                    <p class="text-sm text-gray-400">Perform geospatial analysis and visualize data on maps.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="brain-circuit" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi ml</h3>
+                    <p class="text-sm text-gray-400">Apply machine learning models to your data for predictive analysis.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="shield-check" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi audit</h3>
+                    <p class="text-sm text-gray-400">Track data lineage and changes for audit and security purposes.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="server" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi ops</h3>
+                    <p class="text-sm text-gray-400">Manage and monitor data pipelines and operational workflows.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="users" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi collab</h3>
+                    <p class="text-sm text-gray-400">Collaborate with your team on data projects and share insights.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="file-text" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi report</h3>
+                    <p class="text-sm text-gray-400">Generate and share reports based on your data analysis.</p>
+                </div>
+                <div class="glass p-6 rounded-2xl flex flex-col items-start text-left space-y-3 lg:col-span-4 md:col-span-2 bg-white/5 capability-card">
+                    <div class="p-2 bg-white/5 rounded-md"><i data-lucide="command" class="w-6 h-6 text-white"></i></div>
+                    <h3 class="font-bold text-lg mono">wi interact</h3>
+                    <p class="text-sm text-gray-400">The Command Center: A unified interface to access all Wrought Iron capabilities.</p>
+                </div>
             </div>
         </div>
     </section>
